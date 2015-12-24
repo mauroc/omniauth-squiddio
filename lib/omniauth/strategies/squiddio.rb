@@ -4,10 +4,10 @@ module OmniAuth
   module Strategies
     class Squiddio < OmniAuth::Strategies::OAuth2
 
-      option :name, "sqioddio"
+      option :name, "squiddio"
 
       option :client_options, {
-        :site => "http://squidd.io,
+        :site => "http://squidd.io",
         :authorize_url => "/oauth/authorize",
         :token_url => "/oauth/token"
       }
@@ -16,18 +16,19 @@ module OmniAuth
 
       info do
         {
-          :email => raw_info["email"]
+          :email => raw_info["email"],
           :first_name => raw_info["firstName"],
           :last_name  => raw_info["lastName"],
           :boat => {
           	:id    => raw_info["boat"]["id"],
-                :name  => raw_info["boat"]["name"],,
+                :name  => raw_info["boat"]["name"],
                 :mmsi  => ray_info["boat"]["id"]
+          }
         }
       end
 
       def raw_info
-        @raw_info ||= access_token.get('/signalk/api/v1/users/me.json').parsed
+        @raw_info ||= access_token.get('/signalk/api/v1/users/me').parsed
       end
     end
   end

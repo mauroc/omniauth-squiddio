@@ -14,7 +14,7 @@ gem 'omniauth'
 gem 'omniauth-squiddio'
 ```
 
-Then, to integrate the strategy into your middleware, add this to our omniauth.rb settings file:
+Then, to integrate the strategy into your middleware, add this to your omniauth.rb settings file:
 
 ```ruby
 use OmniAuth::Builder do

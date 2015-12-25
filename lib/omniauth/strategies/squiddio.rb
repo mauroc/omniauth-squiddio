@@ -1,9 +1,10 @@
 #require 'omniauth-oauth2'
-require 'omniauth'
+#require 'omniauth'
+require 'omniauth-oauth'
 
 module OmniAuth
   module Strategies
-    class Squiddio < OmniAuth::Strategies::OAuth2
+    class Squiddio < OmniAuth::Strategies::OAuth
 
       option :name, "squiddio"
 

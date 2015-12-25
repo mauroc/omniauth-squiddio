@@ -9,9 +9,9 @@ module OmniAuth
       option :name, "squiddio"
 
       option :client_options, {
-        :site => "http://squidd.io",
-        :authorize_url => "/oauth/authorize",
-        :token_url => "/oauth/token"
+        :site => "https://squidd.io",
+        :authorize_url => "https://squidd.io/oauth/authorize",
+        :token_url => "https://squidd.io/oauth/token"
       }
 
       uid { raw_info["id"] }

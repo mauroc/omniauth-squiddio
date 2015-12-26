@@ -1,17 +1,16 @@
-#require 'omniauth-oauth2'
-#require 'omniauth'
-require 'omniauth-oauth'
+require 'omniauth-oauth2'
 
 module OmniAuth
   module Strategies
-    class Squiddio < OmniAuth::Strategies::OAuth
+    class Squiddio < OmniAuth::Strategies::OAuth2
 
       option :name, "squiddio"
 
       option :client_options, {
         :site => "https://squidd.io",
-        :authorize_url => "https://squidd.io/oauth/authorize",
-        :token_url => "https://squidd.io/oauth/token"
+        :authorize_path => "/oauth/authorize",
+        :request_token_path => "/oauth/token"    ,
+        :access_token_path => "/oauth/token"
       }
 
       uid { raw_info["id"] }
@@ -24,7 +23,7 @@ module OmniAuth
           :boat => {
           	:id    => raw_info["boat"]["id"],
                 :name  => raw_info["boat"]["name"],
-                :mmsi  => ray_info["boat"]["id"]
+                :mmsi  => raw_info["boat"]["mmsi"]
           }
         }
       end
@@ -32,6 +31,7 @@ module OmniAuth
       def raw_info
         @raw_info ||= access_token.get('/signalk/api/v1/users/me').parsed
       end
+
     end
   end
 end

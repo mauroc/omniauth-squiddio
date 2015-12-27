@@ -7,6 +7,9 @@ This gem is an OmniAuth Strategy for the [Squiddio API](https://github.com/mauro
 Usage
 -----
 
+Obtain SQUIDDIO_KEY and SQUIDDIO_SECRET:
+Create a sQuidd.io account at http://squidd.io/signup if you don't already have one. Create a boat (it will be needed to obtain an auth Client ID and Secret for your SignalK server). Update your boat's current position (some of the sample API requests require a known vessel position).
+
 Add the strategy to your `Gemfile` alongside OmniAuth:
 
 ```ruby

@@ -29,7 +29,7 @@ module OmniAuth
       end
 
       def raw_info
-        @raw_info ||= access_token.get('/signalk/api/v1/users/me').parsed
+        @raw_info ||= access_token.get('/apps/api/v1/users/me').parsed
       end
 
     end
